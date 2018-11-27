@@ -1,0 +1,29 @@
+﻿<Window x:Class="Manager.Windows.Notes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Manager.Windows"
+        mc:Ignorable="d"
+        Title="Notes" Height="500" Width="500">
+    <Grid>
+        <Label Name="EmpNameL" Content="Employee" Margin="10,10,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="OkB" Content="OK" Margin="10,0,10,10" VerticalAlignment="Bottom" FontSize="20" Click="OkB_Click"/>
+        <Grid x:Name="TextGrid" Margin="10,200,9.6,45.4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="101*"/>
+                <ColumnDefinition Width="373*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Description:" Margin="10,10,10,0" VerticalAlignment="Top" Height="26" FontWeight="Bold"/>
+            <Label Content="Staff Notes:" Margin="10,10,10,0" VerticalAlignment="Top" Grid.Row="1" Height="26" FontWeight="Bold"/>
+            <Label Name="DesL" Content="Label" Grid.Column="1" Margin="0,10,0,0"/>
+            <Label Name="SNL" Content="Label" Grid.Column="1" Grid.Row="1" Margin="0,10,0,0"/>
+        </Grid>
+        <Image x:Name="EmpImg" Height="138" Margin="10,57,10,0" VerticalAlignment="Top" />
+
+    </Grid>
+</Window>
