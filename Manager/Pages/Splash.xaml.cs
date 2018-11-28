@@ -66,7 +66,12 @@ namespace Manager.Pages
                 MySQLDb.db.Connect(config.connectionString);
                 status.Content = "Ensuring Database is made...";
                 MySQLDb.db.Create();
-                status.Content = "Checking Database Validity...";
+                status.Content = "Checking Companies in Database...";
+                Status.CompanyNames = MySQLDb.db.GetCompanies();
+                if(Status.CompanyNames.Count == 0)
+                {
+                    //TODO: impliment company creation
+                }
                 status.Content = "Done";
                 Status.LoadStage = 2;
                 this.NavigationService.Navigate(Login.Instance);

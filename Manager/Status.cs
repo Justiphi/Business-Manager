@@ -11,6 +11,11 @@ namespace Manager
 {
     class Status
     {
+        //list for company names and IDs used in the login sequence
+        public static List<KeyValuePair<int, string>> CompanyNames;
+        //Variable for storing the company currently in use
+        public static KeyValuePair<int, string> CurrentCompany;
+
         //loading stage for splash screen information
         public static int LoadStage = 1;
 
