@@ -290,6 +290,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MySQLDb.Company.datasource" />
     <None Include="Properties\DataSources\MySQLDb.ConComp.datasource" />
+    <None Include="Properties\DataSources\MySQLDb.Contact.datasource" />
     <None Include="Properties\DataSources\MySQLDb.Employee.datasource" />
     <None Include="Properties\DataSources\MySQLDb.Secret.datasource" />
     <None Include="Properties\DataSources\MySQLDb.User.datasource" />

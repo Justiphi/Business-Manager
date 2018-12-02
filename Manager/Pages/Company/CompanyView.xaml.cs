@@ -43,5 +43,11 @@ namespace Manager.Pages.Company
         {
             this.NavigationService.Navigate(Menu.Instance);
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Status.AllEmployees = MySQLDb.Load.GetAllEmployees(MySQLDb.Load.currentCompany.CompanyId);
+            employeeDataGrid.ItemsSource = Status.AllEmployees;
+        }
     }
 }
