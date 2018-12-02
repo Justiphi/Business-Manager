@@ -10,7 +10,7 @@ namespace MySQLDb
     public class Load
     {
         public static User currentUser;
-        public static int currentCompany;
+        public static Company currentCompany;
 
         public static List<Employee> GetAllEmployees(int company)
         {
@@ -77,8 +77,8 @@ namespace MySQLDb
             {
                 if(!(dbContext.Users.Where(x => x.UserName == user && x.Password == password).ToList().Count == 0))
                 {
-                    currentUser = dbContext.Users.Where(x => x.UserName == user && x.Password == password).Include(x => x.Employee).First();
-                    currentCompany = currentUser.Employee.CompanyId;
+                    currentUser = dbContext.Users.Where(x => x.UserName == user && x.Password == password).Include(x => x.Employee).ThenInclude(x => x.Company).First();
+                    currentCompany = currentUser.Employee.Company;
                     return (true);
                 }
             }

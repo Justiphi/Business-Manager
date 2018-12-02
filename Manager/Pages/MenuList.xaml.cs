@@ -76,5 +76,12 @@ namespace Manager.Pages
             Status.ConEditMode = false;
             this.NavigationService.Navigate(Contacts.ContactEdit.Instance);
         }
+
+        private void Company_Click(object sender, RoutedEventArgs e)
+        {
+            Company.CompanyView.Instance.CompanyL.Content = MySQLDb.Load.currentCompany.CompanyName;
+            Company.CompanyView.Instance.SectorL.Content = MySQLDb.Load.currentCompany.Sector;
+            this.NavigationService.Navigate(Company.CompanyView.Instance);
+        }
     }
 }

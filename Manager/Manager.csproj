@@ -143,6 +143,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ConfigClass.cs" />
+    <Compile Include="Pages\Company\CompanyView.xaml.cs">
+      <DependentUpon>CompanyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
@@ -177,6 +180,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Company\CompanyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Contacts\ContactBrowse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -281,6 +288,11 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\MySQLDb.Company.datasource" />
+    <None Include="Properties\DataSources\MySQLDb.ConComp.datasource" />
+    <None Include="Properties\DataSources\MySQLDb.Employee.datasource" />
+    <None Include="Properties\DataSources\MySQLDb.Secret.datasource" />
+    <None Include="Properties\DataSources\MySQLDb.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

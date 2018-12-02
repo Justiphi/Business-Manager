@@ -84,7 +84,7 @@ namespace Manager.Windows
 
         private void ResetB_Click(object sender, RoutedEventArgs e)
         {
-            Status.AllEmployees = MySQLDb.Load.GetAllEmployees(MySQLDb.Load.currentCompany);
+            Status.AllEmployees = MySQLDb.Load.GetAllEmployees(MySQLDb.Load.currentCompany.CompanyId);
             Status.CurrentEmpId = 0;
             Pages.Employees.EmpBrowse.Instance.DisplayData();
             this.Hide();

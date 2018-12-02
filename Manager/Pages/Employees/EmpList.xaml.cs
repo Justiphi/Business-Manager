@@ -37,7 +37,7 @@ namespace Manager.Pages.Employees
         public EmpList()
         {
             InitializeComponent();
-            Status.AllEmployees = MySQLDb.Load.GetAllEmployees(MySQLDb.Load.currentCompany);
+            Status.AllEmployees = MySQLDb.Load.GetAllEmployees(MySQLDb.Load.currentCompany.CompanyId);
             lvDataBinding.ItemsSource = Status.AllEmployees;
         }
 

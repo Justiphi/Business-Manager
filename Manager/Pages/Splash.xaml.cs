@@ -79,12 +79,14 @@ namespace Manager.Pages
             else
             {
                 status.Content = $"Setting up interface for {MySQLDb.Load.currentUser.Employee.FirstName} {MySQLDb.Load.currentUser.Employee.LastName}";
+                Menu.Instance.CompanyB.Content = MySQLDb.Load.currentCompany.CompanyName;
+                Menu.Instance.WelcomeL.Content = $"Welcome Back {MySQLDb.Load.currentUser.Employee.FirstName}!";
                 if(MySQLDb.Load.currentUser.AccessLevel <= 2)
                 {
                     Pages.Employees.EmpBrowse.Instance.SecretB.IsEnabled = true;
                 }
                 status.Content = "Loading all Employee entries...";
-                Status.AllEmployees = MySQLDb.Load.GetAllEmployees(MySQLDb.Load.currentCompany);
+                Status.AllEmployees = MySQLDb.Load.GetAllEmployees(MySQLDb.Load.currentCompany.CompanyId);
                 status.Content = "loading first employee to memory...";
                 Status.CurrentEmployee = Status.AllEmployees[0];
                 status.Content = "Done";
