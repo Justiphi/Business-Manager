@@ -40,7 +40,7 @@
             </Grid.ColumnDefinitions>
             <Label Content="Employees" Margin="10" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <Label Content="Contact Companies" Margin="10" Grid.Column="1" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <DataGrid x:Name="employeeDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Row="1" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,0">
+            <DataGrid x:Name="employeeDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Row="1" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,0" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="*"/>
                     <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding LastName}" Header="Last Name" Width="*"/>
@@ -50,7 +50,7 @@
                     <DataGridTextColumn x:Name="availabilityColumn" Binding="{Binding Availability}" Header="Available" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="conCompDataGrid" AutoGenerateColumns="False" Grid.Column="1" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource conCompViewSource}}" Grid.Row="1" RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="*" Margin="10,0">
+            <DataGrid x:Name="conCompDataGrid" AutoGenerateColumns="False" Grid.Column="1" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource conCompViewSource}}" Grid.Row="1" RowDetailsVisibilityMode="VisibleWhenSelected" ColumnWidth="*" Margin="10,0" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="companyNameColumn" Binding="{Binding CompanyName}" Header="Company Name" Width="*"/>
                     <DataGridTextColumn x:Name="sectorColumn" Binding="{Binding Sector}" Header="Sector" Width="*"/>
