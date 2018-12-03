@@ -37,6 +37,7 @@ namespace Manager
         //Lists of all employees and Contacts
         public static List<Employee> AllEmployees;
         public static List<Contact> AllContacts;
+        public static List<ConComp> ContactCompanies;
 
         //list or browse mode for filtering
         public static bool ListMode = false;

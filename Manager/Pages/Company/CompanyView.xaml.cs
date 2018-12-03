@@ -48,6 +48,8 @@ namespace Manager.Pages.Company
         {
             Status.AllEmployees = MySQLDb.Load.GetAllEmployees(MySQLDb.Load.currentCompany.CompanyId);
             employeeDataGrid.ItemsSource = Status.AllEmployees;
+            Status.ContactCompanies = MySQLDb.Load.GetAllConComps(MySQLDb.Load.currentCompany.CompanyId);
+            conCompDataGrid.ItemsSource = Status.ContactCompanies;
         }
     }
 }
