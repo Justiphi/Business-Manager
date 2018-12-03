@@ -51,7 +51,7 @@ namespace Manager.Pages.Contacts
 
         private void EditB_Click(object sender, RoutedEventArgs e)
         {
-            int Selection = this.lvDataBinding.SelectedIndex;
+            int Selection = this.contactDataGrid.SelectedIndex;
             Status.CurrentEmpId = Selection;
             ContactEdit.Instance.DisplayData();
             this.NavigationService.Navigate(ContactEdit.Instance);
@@ -59,7 +59,7 @@ namespace Manager.Pages.Contacts
 
         private void ViewB_Click(object sender, RoutedEventArgs e)
         {
-            int Selection = this.lvDataBinding.SelectedIndex;
+            int Selection = this.contactDataGrid.SelectedIndex;
             Status.CurrentEmpId = Selection;
             ContactBrowse.Instance.DisplayData();
             this.NavigationService.Navigate(ContactBrowse.Instance);
@@ -67,7 +67,7 @@ namespace Manager.Pages.Contacts
 
         private void lvDataBinding_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (this.lvDataBinding.SelectedIndex != -1)
+            if (this.contactDataGrid.SelectedIndex != -1)
             {
                 this.EditB.IsEnabled = true;
                 this.ViewB.IsEnabled = true;

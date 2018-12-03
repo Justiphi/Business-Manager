@@ -38,7 +38,7 @@ namespace Manager.Pages.Employees
         {
             InitializeComponent();
             Status.AllEmployees = MySQLDb.Load.GetAllEmployees(MySQLDb.Load.currentCompany.CompanyId);
-            lvDataBinding.ItemsSource = Status.AllEmployees;
+            employeeDataGrid.ItemsSource = Status.AllEmployees;
         }
 
         private void MenuB_Click(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ namespace Manager.Pages.Employees
 
         private void ViewB_Click(object sender, RoutedEventArgs e)
         {
-            int Selection = this.lvDataBinding.SelectedIndex;
+            int Selection = this.employeeDataGrid.SelectedIndex;
             Status.CurrentEmpId = Selection;
             EmpBrowse.Instance.DisplayData();
             this.NavigationService.Navigate(EmpBrowse.Instance);
@@ -56,16 +56,16 @@ namespace Manager.Pages.Employees
 
         private void EditB_Click(object sender, RoutedEventArgs e)
         {
-            int Selection = this.lvDataBinding.SelectedIndex;
+            int Selection = this.employeeDataGrid.SelectedIndex;
             Status.CurrentEmpId = Selection;
             Status.EmpEditMode = true;
             EmpEdit.Instance.DisplayData();
             this.NavigationService.Navigate(EmpEdit.Instance);
         }
 
-        private void lvDataBinding_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void employeeDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(this.lvDataBinding.SelectedIndex != -1)
+            if(this.employeeDataGrid.SelectedIndex != -1)
             {
                 this.EditB.IsEnabled = true;
                 this.ViewB.IsEnabled = true;
@@ -79,8 +79,8 @@ namespace Manager.Pages.Employees
 
         private void Initialize(object sender, RoutedEventArgs e)
         {
-            this.lvDataBinding.SelectedIndex = -1;
-            if (this.lvDataBinding.SelectedIndex != -1)
+            this.employeeDataGrid.SelectedIndex = -1;
+            if (this.employeeDataGrid.SelectedIndex != -1)
             {
                 this.EditB.IsEnabled = true;
                 this.ViewB.IsEnabled = true;
@@ -100,11 +100,11 @@ namespace Manager.Pages.Employees
 
         public void RefreshList()
         {
-            this.lvDataBinding.SelectedIndex = -1;
+            this.employeeDataGrid.SelectedIndex = -1;
             this.EditB.IsEnabled = false;
             this.ViewB.IsEnabled = false;
-            this.lvDataBinding.ItemsSource = Status.AllEmployees;
-            this.lvDataBinding.Items.Refresh();
+            this.employeeDataGrid.ItemsSource = Status.AllEmployees;
+            this.employeeDataGrid.Items.Refresh();
         }
     }
 }
