@@ -49,7 +49,6 @@ namespace Manager.Pages.Contacts
             this.Phone.Text = Status.CurrentEmployee.PhoneNumber;
             this.DOB.Text = Status.CurrentEmployee.DOB;
             this.Email.Text = Status.CurrentEmployee.Email;
-            this.Company.Text = Status.CurrentEmployee.EmergencyContact;
         }
 
         private void AddB_Click(object sender, RoutedEventArgs e)
@@ -70,7 +69,6 @@ namespace Manager.Pages.Contacts
             this.Phone.Text = "";
             this.DOB.Text = "";
             this.Email.Text = "";
-            this.Company.Text = "";
         }
 
         private void MenuB_Click(object sender, RoutedEventArgs e)
@@ -86,6 +84,12 @@ namespace Manager.Pages.Contacts
         private void SecretB_Click(object sender, RoutedEventArgs e)
         {
             Windows.SecretsEdit.Instance.Show();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Status.ContactCompanies = MySQLDb.Load.GetAllConComps(MySQLDb.Load.currentCompany.CompanyId);
+            this.CompanyL.ItemsSource = Status.ContactCompanies;
         }
     }
 }
