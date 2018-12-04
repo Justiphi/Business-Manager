@@ -51,8 +51,8 @@ namespace Manager.Pages.Contacts
 
         private void EditB_Click(object sender, RoutedEventArgs e)
         {
-            int Selection = this.contactDataGrid.SelectedIndex;
-            Status.CurrentEmpId = Selection;
+            MySQLDb.Contact Selection = (MySQLDb.Contact)contactDataGrid.SelectedItem;
+            Status.CurrentConId = Status.AllContacts.IndexOf(Selection);
             ContactEdit.Instance.DisplayData();
             this.NavigationService.Navigate(ContactEdit.Instance);
         }

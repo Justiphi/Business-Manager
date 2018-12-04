@@ -48,16 +48,16 @@ namespace Manager.Pages.Employees
 
         private void ViewB_Click(object sender, RoutedEventArgs e)
         {
-            int Selection = this.employeeDataGrid.SelectedIndex;
-            Status.CurrentEmpId = Selection;
+            MySQLDb.Employee Selection = (MySQLDb.Employee)employeeDataGrid.SelectedItem;
+            Status.CurrentEmpId = Status.AllEmployees.IndexOf(Selection);
             EmpBrowse.Instance.DisplayData();
             this.NavigationService.Navigate(EmpBrowse.Instance);
         }
 
         private void EditB_Click(object sender, RoutedEventArgs e)
         {
-            int Selection = this.employeeDataGrid.SelectedIndex;
-            Status.CurrentEmpId = Selection;
+            MySQLDb.Employee Selection = (MySQLDb.Employee)employeeDataGrid.SelectedItem;
+            Status.CurrentEmpId = Status.AllEmployees.IndexOf(Selection);
             Status.EmpEditMode = true;
             EmpEdit.Instance.DisplayData();
             this.NavigationService.Navigate(EmpEdit.Instance);
