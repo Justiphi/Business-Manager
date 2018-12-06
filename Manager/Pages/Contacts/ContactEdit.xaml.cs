@@ -89,7 +89,7 @@ namespace Manager.Pages.Contacts
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Status.ContactCompanies = MySQLDb.Load.GetAllConComps(MySQLDb.Load.currentCompany.CompanyId);
-            this.CompanyL.ItemsSource = Status.ContactCompanies;
+            this.CompanyL.ItemsSource = Status.ContactCompanies.Select(x => x.CompanyName);
         }
     }
 }

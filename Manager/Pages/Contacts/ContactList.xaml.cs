@@ -78,5 +78,11 @@ namespace Manager.Pages.Contacts
                 this.ViewB.IsEnabled = false;
             }
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Status.AllContacts = MySQLDb.Load.GetAllContacts(MySQLDb.Load.currentCompany.CompanyId);
+            contactDataGrid.ItemsSource = Status.AllContacts;
+        }
     }
 }
