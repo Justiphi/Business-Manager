@@ -42,13 +42,15 @@ namespace Manager.Pages.Contacts
 
         public void DisplayData()
         {
-            this.Fname.Text = Status.CurrentEmployee.FirstName;
-            this.LName.Text = Status.CurrentEmployee.LastName;
-            this.Region1.Text = Status.CurrentEmployee.Region;
-            this.Role.Text = Status.CurrentEmployee.Role;
-            this.Phone.Text = Status.CurrentEmployee.PhoneNumber;
-            this.DOB.Text = Status.CurrentEmployee.DOB;
-            this.Email.Text = Status.CurrentEmployee.Email;
+            Status.CurrentContact = Status.AllContacts[Status.CurrentConId];
+            this.Fname.Text = Status.CurrentContact.FirstName;
+            this.LName.Text = Status.CurrentContact.LastName;
+            this.Region1.Text = Status.CurrentContact.Region;
+            this.Role.Text = Status.CurrentContact.Role;
+            this.Phone.Text = Status.CurrentContact.PhoneNumber;
+            this.DOB.Text = Status.CurrentContact.DOB;
+            this.Email.Text = Status.CurrentContact.Email;
+            this.CompanyL.SelectedValue = Status.CurrentContact.ConComp.CompanyName;
         }
 
         private void AddB_Click(object sender, RoutedEventArgs e)

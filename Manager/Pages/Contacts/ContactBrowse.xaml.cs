@@ -136,7 +136,7 @@ namespace Manager.Pages.Contacts
 
             this.Fname.Content = Status.CurrentContact.FirstName;
             this.LName.Content = Status.CurrentContact.LastName;
-            this.Company.Content = Status.CurrentContact.Region;
+            this.Company.Content = Status.CurrentContact.ConComp.CompanyName;
             this.Role.Content = Status.CurrentContact.Role;
             this.Phone.Content = Status.CurrentContact.PhoneNumber;
             this.DOB.Content = Status.CurrentContact.DOB;
