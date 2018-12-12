@@ -115,9 +115,9 @@ namespace Manager.Pages.Contacts
 
         public void DisplayData()
         {
-            Status.CurrentEmployee = Status.AllEmployees[Status.CurrentEmpId];
+            Status.CurrentContact = Status.AllContacts[Status.CurrentConId];
 
-            if ((Status.CurrentEmpId + 1) < Status.AllEmployees.Count)
+            if ((Status.CurrentConId + 1) < Status.AllContacts.Count)
             {
                 this.NextB.IsEnabled = true;
             }
@@ -125,7 +125,7 @@ namespace Manager.Pages.Contacts
             {
                 this.NextB.IsEnabled = false;
             }
-            if (Status.CurrentEmpId == 0)
+            if (Status.CurrentConId == 0)
             {
                 this.PrevB.IsEnabled = false;
             }
