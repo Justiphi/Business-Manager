@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Manager.Pages.Contacts"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ContactBrowse">
+      Title="ContactBrowse" Loaded="Page_Loaded">
     <Grid Background="White">
         <Label Content="Contact" Margin="10,10,10,0" VerticalAlignment="Top" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
         <Button x:Name="EditB" Content="Edit" Margin="10,10,0,0" FontSize="22" Click="EditB_Click" HorizontalAlignment="Left" Width="110" Height="43" VerticalAlignment="Top"/>

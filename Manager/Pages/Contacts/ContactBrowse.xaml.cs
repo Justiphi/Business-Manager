@@ -58,13 +58,13 @@ namespace Manager.Pages.Contacts
 
         private void PrevB_Click(object sender, RoutedEventArgs e)
         {
-            Status.CurrentEmpId--;
+            Status.CurrentConId--;
             DisplayData();
         }
 
         private void NextB_Click(object sender, RoutedEventArgs e)
         {
-            Status.CurrentEmpId++;
+            Status.CurrentConId++;
             DisplayData();
         }
 
@@ -115,9 +115,10 @@ namespace Manager.Pages.Contacts
 
         public void DisplayData()
         {
-            Status.CurrentEmployee = Status.AllEmployees[Status.CurrentEmpId];
+            Status.AllContacts = MySQLDb.Load.GetAllContacts(MySQLDb.Load.currentCompany.CompanyId);
+            Status.CurrentContact = Status.AllContacts[Status.CurrentConId];
 
-            if ((Status.CurrentEmpId + 1) < Status.AllEmployees.Count)
+            if ((Status.CurrentConId + 1) < Status.AllContacts.Count)
             {
                 this.NextB.IsEnabled = true;
             }
@@ -125,7 +126,7 @@ namespace Manager.Pages.Contacts
             {
                 this.NextB.IsEnabled = false;
             }
-            if (Status.CurrentEmpId == 0)
+            if (Status.CurrentConId == 0)
             {
                 this.PrevB.IsEnabled = false;
             }
@@ -148,6 +149,11 @@ namespace Manager.Pages.Contacts
         {
             Status.ListMode = false;
             Windows.EmployeeFilter.Instance.Show();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DisplayData();
         }
     }
 }
