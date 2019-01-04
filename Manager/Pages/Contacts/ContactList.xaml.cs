@@ -59,13 +59,19 @@ namespace Manager.Pages.Contacts
 
         private void ViewB_Click(object sender, RoutedEventArgs e)
         {
-            int Selection = this.contactDataGrid.SelectedIndex;
-            Status.CurrentEmpId = Selection;
+            MySQLDb.Contact Selection = (MySQLDb.Contact)contactDataGrid.SelectedItem;
+            Status.CurrentConId = Status.AllContacts.IndexOf(Selection);
             ContactBrowse.Instance.DisplayData();
             this.NavigationService.Navigate(ContactBrowse.Instance);
         }
 
-        private void lvDataBinding_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Status.AllContacts = MySQLDb.Load.GetAllContacts(MySQLDb.Load.currentCompany.CompanyId);
+            contactDataGrid.ItemsSource = Status.AllContacts;
+        }
+
+        private void ContactDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (this.contactDataGrid.SelectedIndex != -1)
             {

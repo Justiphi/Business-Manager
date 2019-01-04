@@ -27,7 +27,7 @@ namespace MySQLDb
             List<Contact> contacts = new List<Contact>();
             using (var dbContext = new DataContext())
             {
-                contacts = dbContext.Contacts.Where(x => x.ConComp.CompanyId == company).ToList();
+                contacts = dbContext.Contacts.Where(x => x.ConComp.CompanyId == company).Include(x => x.ConComp).ToList();
             }
             return (contacts);
         }
