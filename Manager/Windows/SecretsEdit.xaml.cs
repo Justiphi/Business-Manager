@@ -42,5 +42,21 @@ namespace Manager.Windows
         {
             this.Hide();
         }
+
+        public bool IsFilled()
+        {
+            if(this.Tax.Text.Equals(string.Empty) && this.IRD.Text.Equals(string.Empty) && this.Bank.Text.Equals(string.Empty))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void Reset()
+        {
+            Tax.Text = string.Empty;
+            Bank.Text = string.Empty;
+            IRD.Text = string.Empty;
+        }
     }
 }

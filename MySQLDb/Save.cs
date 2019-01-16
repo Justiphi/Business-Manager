@@ -120,6 +120,15 @@ namespace MySQLDb
             }
         }
 
+        public static void UpdateContact(Contact con)
+        {
+            using(var dbContext = new DataContext())
+            {
+                Contact update = dbContext.Contacts.Where(x => x.ContactId == con.ContactId).First();
+                dbContext.SaveChanges();
+            }
+        }
+
         public static void AuthenticateUser(int employee, string uname, string pass, int al)
         {
             using (var dbContext = new DataContext())
@@ -179,6 +188,17 @@ namespace MySQLDb
             using (var dbContext = new DataContext())
             {
                 dbContext.Contacts.Where(x => x.ContactId == employee).First().Secret = secret;
+                dbContext.SaveChanges();
+            }
+        }
+
+        public static void AddCompany(Company company, Employee employee, User user)
+        {
+            using (var dbContext = new DataContext())
+            {
+                employee.Login = user;
+                company.Employees = new List<Employee> { employee };
+                dbContext.Companies.Add(company);
                 dbContext.SaveChanges();
             }
         }

@@ -143,6 +143,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ConfigClass.cs" />
+    <Compile Include="Pages\Company\AddCompany.xaml.cs">
+      <DependentUpon>AddCompany.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Company\AddConComp.xaml.cs">
+      <DependentUpon>AddConComp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Company\CompanyView.xaml.cs">
       <DependentUpon>CompanyView.xaml</DependentUpon>
     </Compile>
@@ -180,6 +186,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Company\AddCompany.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Company\AddConComp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Company\CompanyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

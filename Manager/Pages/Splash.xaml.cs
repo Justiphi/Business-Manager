@@ -70,7 +70,7 @@ namespace Manager.Pages
                 Status.CompanyNames = MySQLDb.db.GetCompanies();
                 if(Status.CompanyNames.Count == 0)
                 {
-                    //TODO: impliment company creation
+                    this.NavigationService.Navigate(new Company.AddCompany());
                 }
                 status.Content = "Done";
                 Status.LoadStage = 2;

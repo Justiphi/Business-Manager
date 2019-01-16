@@ -42,5 +42,21 @@ namespace Manager.Windows
         {
             this.Hide();
         }
+
+        public bool IsFilled()
+        {
+            if (this.ImgUrl.Text.Equals(string.Empty) && this.SNotes.Text.Equals(string.Empty) && this.Des.Text.Equals(string.Empty))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void Reset()
+        {
+            ImgUrl.Text = string.Empty;
+            SNotes.Text = string.Empty;
+            Des.Text = string.Empty;
+        }
     }
 }

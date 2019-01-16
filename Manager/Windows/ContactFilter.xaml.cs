@@ -78,7 +78,7 @@ namespace Manager.Windows
             }
             else
             {
-                MessageBox.Show("No employees found matching these filters");
+                MessageBox.Show("No contacts found matching these filters");
             }
         }
 

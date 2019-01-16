@@ -11,6 +11,11 @@ namespace Manager
 {
     class Status
     {
+        //company employee and user for company creation (usually on first launch)
+        public static Company NewCompany;
+        public static Employee NewEmployee;
+        public static User NewUser;
+
         //list for company names and IDs used in the login sequence
         public static List<KeyValuePair<int, string>> CompanyNames;
         //Variable for storing the company currently in use
