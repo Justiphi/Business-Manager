@@ -152,6 +152,9 @@
     <Compile Include="Pages\Company\CompanyView.xaml.cs">
       <DependentUpon>CompanyView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Company\ConCompView.xaml.cs">
+      <DependentUpon>ConCompView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
@@ -195,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Company\CompanyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Company\ConCompView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,17 +20,17 @@ namespace Manager.Pages.Company
     /// </summary>
     public partial class AddConComp : Page
     {
-        private AddConComp instance;
+        private static AddConComp instance;
 
-        public AddConComp Instance
+        public static AddConComp Instance
         {
             get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     instance = new AddConComp();
                 }
-                return instance;
+                return (instance);
             }
         }
 
@@ -43,15 +43,26 @@ namespace Manager.Pages.Company
         {
             MySQLDb.ConComp company = new MySQLDb.ConComp
             {
-                CompanyName = this.CompanyL
-
+                CompanyName = this.CompanyInput.Text,
+                Sector = this.SectorInput.Text,
+                StaffNotes = this.StaffNotesInput.Text
             };
             MySQLDb.Save.AddConComp(MySQLDb.Load.currentCompany.CompanyId, company);
+            this.NavigationService.Navigate(Menu.Instance);
+            resetInput();
+        }
+
+        public void resetInput()
+        {
+            this.CompanyInput.Text = null;
+            this.SectorInput.Text = null;
+            this.StaffNotesInput.Text = null;
         }
 
         private void ExitB_Click(object sender, RoutedEventArgs e)
         {
-
+            resetInput();
+            this.NavigationService.Navigate(Menu.Instance);
         }
     }
 }

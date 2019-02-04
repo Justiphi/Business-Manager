@@ -41,12 +41,24 @@ namespace Manager.Pages.Employees
 
         private void NotesB_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Status.EmpEditMode)
+            {
+                Windows.NotesEdit.Instance.ImgUrl.Text = Status.CurrentEmployee.ImageURL;
+                Windows.NotesEdit.Instance.SNotes.Text = Status.CurrentEmployee.StaffNotes;
+                Windows.NotesEdit.Instance.Des.Text = Status.CurrentEmployee.Description;
+            }
+            Windows.NotesEdit.Instance.Show();
         }
 
         private void SecretB_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Status.EmpEditMode)
+            {
+                Windows.SecretsEdit.Instance.Tax.Text = Status.CurrentEmployee.Secret.TaxCode;
+                Windows.SecretsEdit.Instance.Bank.Text = Status.CurrentEmployee.Secret.BankNo;
+                Windows.SecretsEdit.Instance.IRD.Text = Status.CurrentEmployee.Secret.IRDNo;
+            }
+            Windows.SecretsEdit.Instance.Show();
         }
 
         private void MenuB_Click(object sender, RoutedEventArgs e)

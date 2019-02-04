@@ -19,14 +19,17 @@
         <Label x:Name="CompanyL" Content="Company" Margin="10,10,10,0" VerticalAlignment="Top" FontSize="48" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold"/>
         <Grid Margin="10,0,10,10" Height="44" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="25*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="MenuB" Content="Menu" Margin="10,1,10,1" FontSize="22" Click="MenuB_Click"/>
+            <Button x:Name="AddB" Content="Add Company" Margin="10,1" FontSize="22" Click="AddB_Click" Grid.Column="5"/>
+            <Button x:Name="DelB" Content="Remove" Margin="10,1" FontSize="22" Click="DelB_Click" Grid.Column="3"/>
+            <Button x:Name="ViewB" Content="View" Margin="10,1" FontSize="22" Click="ViewB_Click" Grid.Column="2"/>
         </Grid>
         <Label x:Name="SectorL" Content="Sector" Margin="10,89,10,0" VerticalAlignment="Top" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Grid Margin="10,152,10,59" DataContext="{StaticResource employeeViewSource}">
@@ -35,7 +38,7 @@
                 <RowDefinition Height="182*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="53*"/>
+                <ColumnDefinition Width="50*"/>
                 <ColumnDefinition Width="25*"/>
             </Grid.ColumnDefinitions>
             <Label Content="Employees" Margin="10" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>

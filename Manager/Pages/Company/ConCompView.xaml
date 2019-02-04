@@ -1,0 +1,53 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Manager.Pages.Company"
+      xmlns:MySQLDb="clr-namespace:MySQLDb;assembly=MySQLDb" x:Class="Manager.Pages.Company.ConCompView"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ConCompView" Background="White">
+    <Page.Resources>
+        <CollectionViewSource x:Key="contactViewSource" d:DesignSource="{d:DesignInstance {x:Type MySQLDb:Contact}, CreateList=True}"/>
+    </Page.Resources>
+
+    <Grid>
+
+        <Label x:Name="CompanyL" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,0" HorizontalContentAlignment="Center" FontSize="48" FontWeight="Bold" Content="Company"/>
+        <Grid VerticalAlignment="Bottom" Margin="10,0,10,10" Height="44">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="MenuB" Margin="10,1,10,1" FontSize="22" Content="Menu" Click="MenuB_Click"/>
+            <Button x:Name="DelB" Margin="10,1" FontSize="22" Grid.Column="3" Content="Remove" Click="DelB_Click"/>
+            <Button x:Name="ViewB" Margin="10,1" FontSize="22" Grid.Column="2" Content="View" Click="ViewB_Click"/>
+        </Grid>
+        <Label x:Name="SectorL" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="10,89,10,0" HorizontalContentAlignment="Center" FontSize="36" Content="Sector"/>
+        <Grid Margin="10,152,10,59" DataContext="{StaticResource contactViewSource}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="57*"/>
+                <RowDefinition Height="182*"/>
+            </Grid.RowDefinitions>
+            <Label VerticalContentAlignment="Center" Margin="10" HorizontalContentAlignment="Center" FontSize="18" Content="Employees"/>
+            <DataGrid x:Name="contactDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Grid.Row="1" RowDetailsVisibilityMode="VisibleWhenSelected" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="*"/>
+                    <DataGridTextColumn x:Name="lastNameColumn" Binding="{Binding LastName}" Header="Last Name" Width="*"/>
+                    <DataGridTextColumn x:Name="roleColumn" Binding="{Binding Role}" Header="Role" Width="*"/>
+                    <DataGridTextColumn x:Name="dOBColumn" Binding="{Binding DOB}" Header="DOB" Width="*"/>
+                    <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="Email" Width="2*"/>
+                    <DataGridTextColumn x:Name="phoneNumberColumn" Binding="{Binding PhoneNumber}" Header="Phone Number" Width="1.2*"/>
+                    <DataGridTextColumn x:Name="regionColumn" Binding="{Binding Region}" Header="Region" Width="*"/>
+                    <DataGridTextColumn x:Name="contacterColumn" Binding="{Binding Contacter}" Header="Contacter" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</Page>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,7 +56,7 @@ namespace MySQLDb
         {
             using (var dbContext = new DataContext())
             {
-                var company = dbContext.Companies.Where(x => x.CompanyId == Company).First();
+                var company = dbContext.Companies.Where(x => x.CompanyId == Company).Include(x => x.Employees).First();
                 if (company.Employees == null)
                 {
                     company.Employees = new List<Employee>();
@@ -75,7 +76,7 @@ namespace MySQLDb
                     Sector = sec,
                     StaffNotes = notes
                 };
-                dbContext.Companies.Where(x => x.CompanyId == Company).First().ConComps.Add(comp);
+                dbContext.Companies.Where(x => x.CompanyId == Company).Include(x => x.ConComps).First().ConComps.Add(comp);
                 dbContext.SaveChanges();
             }
         }
@@ -84,7 +85,7 @@ namespace MySQLDb
         {
             using (var dbContext = new DataContext())
             {
-                dbContext.Companies.Where(x => x.CompanyId == Company).First().ConComps.Add(comp);
+                dbContext.Companies.Where(x => x.CompanyId == Company).Include(x => x.ConComps).First().ConComps.Add(comp);
                 dbContext.SaveChanges();
             }
         }
@@ -111,11 +112,12 @@ namespace MySQLDb
             }
         }
 
-        public static void AddContact(int Company, int concomp, Contact con)
+        public static void AddContact(int Company, int concomp, Contact con, Secret sec)
         {
             using (var dbContext = new DataContext())
             {
-                dbContext.Companies.Where(x => x.CompanyId == Company).First().ConComps.Where(x => x.ConCompId == concomp).First().Contacts.Add(con);
+                Company company = dbContext.Companies.Where(x => x.CompanyId == Company).Include(x => x.ConComps).ThenInclude(x => x.Contacts).First();
+                company.ConComps.Where(x => x.ConCompId == concomp).First().Contacts.Add(con);
                 dbContext.SaveChanges();
             }
         }
@@ -199,6 +201,33 @@ namespace MySQLDb
                 employee.Login = user;
                 company.Employees = new List<Employee> { employee };
                 dbContext.Companies.Add(company);
+                dbContext.SaveChanges();
+            }
+        }
+
+        public static void RemoveEmployee(Employee employee)
+        {
+            using (var dbContext = new DataContext())
+            {
+                dbContext.Employees.Remove(employee);
+                dbContext.SaveChanges();
+            }
+        }
+
+        public static void RemoveConComp(ConComp conComp)
+        {
+            using (var dbContext = new DataContext())
+            {
+                dbContext.ContactCompanies.Remove(conComp);
+                dbContext.SaveChanges();
+            }
+        }
+
+        public static void RemoveContact(Contact selectedItem)
+        {
+            using (var dbContext = new DataContext())
+            {
+                dbContext.Contacts.Remove(selectedItem);
                 dbContext.SaveChanges();
             }
         }

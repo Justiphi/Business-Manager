@@ -55,6 +55,7 @@ namespace Manager.Pages.Contacts
 
         private void AddB_Click(object sender, RoutedEventArgs e)
         {
+            MySQLDb.Secret secret = null;
             MySQLDb.Contact contact = new MySQLDb.Contact {
                 FirstName = this.Fname.Text,
                 LastName = this.LName.Text,
@@ -70,7 +71,7 @@ namespace Manager.Pages.Contacts
 
             if (Windows.SecretsEdit.Instance.IsFilled())
             {
-                contact.Secret = new MySQLDb.Secret {
+                secret = new MySQLDb.Secret {
                     IRDNo = Windows.SecretsEdit.Instance.IRD.Text,
                     BankNo = Windows.SecretsEdit.Instance.Bank.Text,
                     TaxCode = Windows.SecretsEdit.Instance.Tax.Text
@@ -84,7 +85,7 @@ namespace Manager.Pages.Contacts
             }
             else
             {
-                MySQLDb.Save.AddContact(MySQLDb.Load.currentCompany.CompanyId, (int)this.CompanyL.SelectedValue, contact);
+                MySQLDb.Save.AddContact(MySQLDb.Load.currentCompany.CompanyId, (int)this.CompanyL.SelectedValue, contact, secret);
                 this.NavigationService.Navigate(Menu.Instance);
             }
 
